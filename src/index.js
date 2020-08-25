@@ -1,30 +1,21 @@
-import React, {Component} from "react";
-import {render} from 'react-dom';
-import Map from './App';
-import credencials from './credencials'
-
+import React from "react";
+import { render } from 'react-dom';
+import GoogleMapReact from 'google-map-react';
 import './style.css';
 
-const mapURL= `https://maps.googleapis.com/mas/api/js?v=3.exp&key=${credencials.mapsKeys}`;
-class App extends Component{
-  constructor(){
-    super();
-    this.state ={
-      name: 'React'
-    };
-  }
-  render(){
-    return (
-      <div>
-      <Map 
-      googleMapURL= {mapURL}
-      containerElement={ <div style={{height:'400px'}} />}
-      mapElement= {<div styles={{height:'100%'}} />}
-      loadingElement={ <p> cargando</p>}
-      />
-      </div>
-    );
-  }
-}
 
-ReactDOM.render(<App />, document.getElementById("root"));
+
+export default function App(){
+
+return(
+  <div style={{heigth: "50vh", width: "90%"}}>
+  <GoogleMapReact
+  bootstrapURLKeys={{ key: 'AIzaSyDerbefQKeTqHad7fC0wFw0YoPYStEdmPU' }}
+  defaultCenter={{lat : 19.427142, lng: -99.167658}}
+  defaultZoom={10} 
+  >
+  </GoogleMapReact>
+  </div>
+);
+}
+render(<App />, document.getElementById('root'));
